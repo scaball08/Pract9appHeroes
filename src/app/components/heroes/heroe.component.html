@@ -1,0 +1,45 @@
+<h3>Heroe <small *ngIf="heroe.nombre">{{heroe.nombre}}</small></h3>
+<hr>
+
+<button [routerLink]="['/heroe']" type="button" class="btn btn-outline-danger mb-2 animated fadeIn fast" name="button">
+  Regresar
+</button>
+
+<button type="button" (click)="agregarNuevo(forma)" class="btn btn-outline-success ml-2 mb-2 animated fadeIn fast">
+  Agregar Nuevo
+</button>
+
+<div class="row animated fadeIn fast">
+    <div class="col">
+        <form action="" (ngSubmit)="guardar()" #forma="ngForm" novalidate>
+
+            <div class="form-group">
+                <label>Nombre</label>
+                <input [(ngModel)]="heroe.nombre" type="text" required class="form-control" name="nombre" placeholder="Nombre del Heroe">
+
+            </div>
+
+
+            <div class="form-group">
+                <label>Casa</label>
+                <select [(ngModel)]="heroe.casa" class="form-control" name="casa">
+                <option value="Marvel" >Marvel</option>
+                <option value="DC" >DC</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+                <label for="">Bio</label>
+                <textarea [(ngModel)]="heroe.bio" type="text" class="form-control" name="bio">
+
+              </textarea>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" [disabled]="!forma.valid" class="btn btn-primary">Guardar Cambios</button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
